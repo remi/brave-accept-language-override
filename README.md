@@ -14,13 +14,4 @@ $ npm install http-server && http-server .
 
 ## Result
 
-<table>
-<tr>
-	<td>Safari
-	<td>Firefox
-<tr>
-	<td>Chrome
-	<td>Brave
-</table>
-
-<img width="1840" alt="" src="https://user-images.githubusercontent.com/11348/194751591-f67693a3-ee1b-4d68-9ca8-7115e8ecce40.png">
+<img width="1797" alt="" src="https://user-images.githubusercontent.com/11348/194754793-509a48cd-8c33-411a-a640-6ef37089e7fa.png">
