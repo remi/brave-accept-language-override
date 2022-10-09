@@ -1,15 +1,15 @@
 # Brave’s `Accept-Language` header override
 
-A quick proof-of-concept to explore Brave’s override of the Accept-Language header.
+A quick proof-of-concept to explore Brave’s [override of the `Accept-Language` header](https://brave.com/privacy-updates/17-language-fingerprinting/).
 
 ## Usage
 
 ```
-$ npm install http-server
-
+# Start the node.js server and put it in the background
 $ node server.js &
 
-$ http-server .
+# You can use `http-server` or anything else to serve the current directory as a Web server (not `file://`)
+$ npm install http-server && http-server .
 ```
 
 ## Result
