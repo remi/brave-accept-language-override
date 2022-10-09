@@ -1,0 +1,61 @@
+<!doctype html>
+<head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font: 400 1.5em/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+      color: #fff;
+      background: #111;
+    }
+
+    #header-original-value {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    #header-value {
+      background: rgba(0, 255, 0, 0.25);
+    }
+
+    #header-value.error {
+      background: rgba(255, 0, 0, 0.25);
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <p>This client sends <code id="header-original-value"></code> as the content of <code>Accept-Language</code> header.</p>
+    <p>The API received <code id="header-value"></code> as the content of <code>Accept-Language</code> header.</p>
+  </div>
+
+  <script type="text/javascript">
+    const originalHeader = 'en';
+    document.getElementById('header-original-value').textContent = originalHeader;
+
+    const method = 'GET'
+    const headers = new Headers({
+      'Accept-Language': originalHeader
+    });
+
+    const opts = {method, headers, mode: 'cors', cache: 'default'};
+
+    window.fetch('http://localhost:8081/api.json', opts)
+      .then((response) => response.json())
+      .then((response) => {
+        const receivedHeader = response.message;
+        document.getElementById('header-value').innerHTML = receivedHeader;
+
+        if (receivedHeader != originalHeader) {
+          document.getElementById('header-value').classList.add('error');
+        }
+      });
+  </script>
+</body>
