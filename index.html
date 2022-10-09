@@ -13,8 +13,15 @@
       justify-content: center;
       height: 100vh;
       font: 400 1.5em/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
-      color: #fff;
-      background: #111;
+      background: #fff;
+      color: #111;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        color: #fff;
+        background: #111;
+      }
     }
 
     #header-original-value {
@@ -40,21 +47,18 @@
     const originalHeader = 'en';
     document.getElementById('header-original-value').textContent = originalHeader;
 
-    const method = 'GET'
-    const headers = new Headers({
-      'Accept-Language': originalHeader
-    });
+    const headers = new Headers({'Accept-Language': originalHeader});
+    const opts = {headers, method: 'GET', mode: 'cors', cache: 'default'};
 
-    const opts = {method, headers, mode: 'cors', cache: 'default'};
-
-    window.fetch('http://localhost:8081/api.json', opts)
+    window.fetch('http://localhost:8081', opts)
       .then((response) => response.json())
       .then((response) => {
         const receivedHeader = response.message;
-        document.getElementById('header-value').innerHTML = receivedHeader;
+        const headerValueElement = document.getElementById('header-value')
+        headerValueElement.innerHTML = receivedHeader;
 
         if (receivedHeader != originalHeader) {
-          document.getElementById('header-value').classList.add('error');
+          headerValueElement.classList.add('error');
         }
       });
   </script>
