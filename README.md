@@ -14,4 +14,4 @@ $ npm install http-server && http-server .
 
 ## Result
 
-<img width="1797" alt="" src="https://user-images.githubusercontent.com/11348/194754793-509a48cd-8c33-411a-a640-6ef37089e7fa.png">
+<img width="1827" alt="" src="https://user-images.githubusercontent.com/11348/194755176-9db6670b-ab1d-4ff8-8fe0-aad340d7a5a0.png">
